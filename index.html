@@ -3,54 +3,72 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=1024, user-scalable=no">
 
-	<title>Turning Your Domain into a Persona Identity Provider</title>
-  <style type="text/css">
-    body {
-      margin: 0;
-      background-color: #111;
-    }
+	<title>The PiCL Design Review</title>
 
-    iframe {
-      width: 1024px;
-      height: 768px;
-      margin: 0 auto;
-      display: block;
+	<!-- Required stylesheet -->
+	<link rel="stylesheet" href="core/deck.core.css">
 
-      border: none;
+	<!-- Extension CSS files go here. Remove or add as needed. -->
+	<link rel="stylesheet" href="extensions/hash/deck.hash.css">
+	<link rel="stylesheet" href="extensions/scale/deck.scale.css">
 
-      position: absolute;
-      left: 0;
-      right: 0;
-      top: 50%;
-      -webkit-transform: translate(0, -50%);
-      -moz-transform: translate(0, -50%);
-      -ms-transform: translate(0, -50%);
-      -o-transform: translate(0, -50%);
-      transform: translate(0, -50%);
-    }
-  </style>
+	<!-- Style theme. More available in /themes/style/ or create your own. -->
+	<link rel="stylesheet" href="themes/style/sandstone.persona.css">
+	<link rel="stylesheet" href="./slides.css">
+
+	<!-- Required Modernizr file -->
+	<script src="modernizr.custom.js"></script>
 </head>
-<body>
-  <iframe src="slides.html"></iframe>
-  <script type="text/javascript">
-  document.body.addEventListener("keyup", goFullScreen, false);
+<body class="deck-container">
 
-  function goFullScreen(evt) {
-    if (evt.keyCode == 70) {
-      // Trigger fullscreen
-      elem = document.documentElement;
-      if (elem.requestFullscreen) {
-        elem.requestFullscreen();
-      } else if (elem.webkitRequestFullScreen) {
-        elem.webkitRequestFullScreen(Element.ALLOW_KEYBOARD_INPUT);
-      } else if (elem.mozRequestFullScreen) {
-        elem.mozRequestFullScreen();
-      } else {
-        // fail silently
-      }
-    };
-  }
-  </script>
+<!-- Begin slides. Just make elements with a class of slide. -->
+
+<!-- INTRODUCTION -->
+
+<section class="slide s-notfx">
+<div>
+<span>"Fixing Sync" <em>For Real</em></span><br>
+The PiCL design review - July 26th 2013
+</div>
+</section>
+
+<section class="slide">
+## Agenda
+<ol>
+<li> What are we building? </li>
+<li> How will we build it? </li>
+<li> What do we know today? </li>
+<li> What's next? </li>
+</ol>
+</section>
+
+<section class="slide">
+
+</section>
+
+
+<! -- END -->
+
+<!-- Required JS files. -->
+<script src="jquery-1.7.2.min.js"></script>
+<script src="core/deck.core.js"></script>
+
+<!-- Extension JS files. Add or remove as needed. -->
+<script src="extensions/hash/deck.hash.js"></script>
+<script src="extensions/scale/deck.scale.js"></script>
+<script src="extensions/markdown/Markdown.Converter.js"></script>
+<script src="extensions/markdown/deck.markdown.js"></script>
+
+<!-- Initialize the deck. You can put this in an external file if desired. -->
+<script>
+	$(function() {
+    $.extend(true, $.deck.defaults, {
+      hashPrefix: '',
+    });
+		$.deck('.slide');
+	});
+</script>
 </body>
 </html>
