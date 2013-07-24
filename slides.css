@@ -13,8 +13,16 @@
     background-repeat: no-repeat;
 }
 
-.deck-container .slide.s-notfx h1 {
-    top: 75%;
+.deck-container .slide.s-notfx div span {
+    font-size: 400%;
+    font-weight: bold;
+}
+
+.deck-container .slide.s-notfx div {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    top: 70%;
 }
 
 /* Supported Browsers */
