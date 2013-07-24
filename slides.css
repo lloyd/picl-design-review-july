@@ -1,4 +1,8 @@
 /* Slides with a header and big body */
+b {
+  font-weight: bold;
+  font-size: 2em;
+}
 
 .deck-container .slide.s-headerbigbody p {
     font-size: 2em;
