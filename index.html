@@ -88,7 +88,10 @@ https://wiki.mozilla.org/User:Dria/Firefox_Sync_User_Stories_-_July_2013
 </section>
 
 <section class="slide">
-## Architecture
+## 10k Ft. Architecture
+<p style="padding-bottom: 100px;">
+<img src="i/high level arch.png">
+</p>
 </section>
 
 <section class="slide">
@@ -101,7 +104,9 @@ https://wiki.mozilla.org/User:Dria/Firefox_Sync_User_Stories_-_July_2013
 
 <section class="slide">
 ## Responsibility
-# Who owns what? (diagram)
+<p style="padding-bottom: 100px;">
+<img src="i/high level owned arch.png">
+</p>
 </section>
 
 <section class="slide">
@@ -118,15 +123,6 @@ https://wiki.mozilla.org/User:Dria/Firefox_Sync_User_Stories_-_July_2013
 </section>
 
 <section class="slide">
-## Key Dates
-<ol>
-<li> Sept 2nd - storage decision
-<li> Sept 30th - Sign in implemented
-<li> ...
-</ol>
-</section>
-
-<section class="slide">
 # Focus. Parallelization. Contracts. Communication.
 </section>
 
@@ -135,6 +131,7 @@ https://wiki.mozilla.org/User:Dria/Firefox_Sync_User_Stories_-_July_2013
 <ol>
   <li> <strong>Recoverable</strong> - Bookmarks, tabs, and history
   <li> <strong>Non-Recoverable</strong> - Passwords
+  <li> Client Side Encryption
 </ol>
 </section>
 
@@ -146,7 +143,7 @@ https://wiki.mozilla.org/User:Dria/Firefox_Sync_User_Stories_-_July_2013
 ## Requirements
 <ol>
   <li> Works everywhere.
-  <li> Our products have full control over UX.
+  <li> Products have (nearly) full control over UX.
   <li> Cryptographic keys derived from user's password.
   <li> No Federated sign in.
 </ol>
@@ -154,7 +151,9 @@ https://wiki.mozilla.org/User:Dria/Firefox_Sync_User_Stories_-_July_2013
 
 <section class="slide">
 ## Deployment
-High level deployment diagram of authenticaiton
+<p style="padding-bottom: 100px;">
+<img src="i/auth deployment.png">
+</p>
 </section>
 
 <section class="slide">
@@ -209,28 +208,43 @@ High level deployment diagram of authenticaiton
 
 <section class="slide">
 ## Current Approach
-<ol>
-  <li> Use the CouchDB wire protocol
-</ol>
+
+# diagram
+
+https://github.com/vladikoff/syncable-service-poc/
 </section>
 
 <section class="slide">
-## Making a Decision
-# Sept 2nd, prototype battle
+## Key Questions Around CouchDB
+<ul>
+  <li> Protocol Limitations
+  <li> Structure data (bookmarks!)
+  <li> Client resource usage
+  <li> Data Representation
+  <li> Scalability
+</ul>
 </section>
 
 <section class="slide">
-## Prototypes
-Vlad and Dale
+# Decision: Sept 2nd - Complete Prototype.
+</section>
+
+<section class="slide">
+## Prototype Requirements
+<ul>
+ <li> Multi-Environments (all 3 best)
+ <li> Bookmarks and History
+ <li> Viable Data Representations
+ <li> Authenticated (maybe fake
+</ul>
 </section>
 
 <section class="slide">
 ## Path Forward
 <ul>
-  <li> Speak up about MVP, now.
-  <li> Prototypes ready by Sept 2nd
-  <li> Finish Auth by Q3
-  <li> Tauni is the focal point of communcaiton
+  <li> Program Management by Tauni
+  <li> Storage Decision on Sept 2nd
+  <li> Finish Auth by Sept 30
 </ul>
 </section>
 
