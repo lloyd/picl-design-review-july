@@ -30,6 +30,7 @@
 <section class="slide s-notfx">
 <div>
 <span>"Fixing Sync". <em>Really</em>.</span><br>
+<br>
 The PiCL design review - July 26th 2013
 </div>
 </section>
@@ -39,7 +40,7 @@ The PiCL design review - July 26th 2013
 <ol>
 <li> What are we building? </li>
 <li> How will we build it? </li>
-<li> What do we know today? </li>
+<li> Where are we today? </li>
 <li> What's next? </li>
 </ol>
 </section>
@@ -51,20 +52,20 @@ The PiCL design review - July 26th 2013
 <section class="slide">
 ## Key Goals
 <ul>
-<li> <em>Usability</em>: email and password
-<li> <em>Stability</em>: Doesn't suck
-<li> <em>Time To Market</em>
-<li> <em>Future Features</em>: Are Possible.
+  <li> <em>Usability</em>
+  <li> <em>Stability</em>
+  <li> <em>Time To Market</em>
+  <li> <em>Future Features</em>
 </ul>
 </section>
 
 <section class="slide">
 ## MVP Definition
 <ul>
-<li> Email / Password based setup
-<li> Passwords, Tabs, Bookmarks and History
-<li> Migration of existing sync users (!)
-<li> Sync is durable and frequent
+<li> Email / password based setup
+<li> Passwords, tabs, bookmarks and history.
+<li> Sync is durable and frequent.
+<li> Migration of existing sync users.
 </ul>
 <br><br>
 https://wiki.mozilla.org/User:Dria/Firefox_Sync_User_Stories_-_July_2013
@@ -74,16 +75,16 @@ https://wiki.mozilla.org/User:Dria/Firefox_Sync_User_Stories_-_July_2013
 ## Design Constraints
 <br><center><i>(whereby we plan for the future without slowing down.)</i></center><br>
 <ul>
-<li> One Password For Firefox
-<li> Easy to add new data types
-<li> Parallelize
-<li> Win on Privacy <em>and</em> Usability
+<li> One Password For Firefox.
+<li> Easy to add new data types.
+<li> Parallelize.
+<li> Win on privacy <em>and</em> usability.
 </ul>
 </section>
 
 <section class="slide">
 ## Feel it Like A Human Would
-# <a href="http://idp-mocks.lcip.org/">Grab your Pahcorns!</a>
+# <a href="http://idp-mocks.lcip.org/" style="color: #fff">Grab your Pahcorns!</a>
 </section>
 
 <section class="slide">
@@ -91,16 +92,11 @@ https://wiki.mozilla.org/User:Dria/Firefox_Sync_User_Stories_-_July_2013
 </section>
 
 <section class="slide">
-# Fixing sync by giving you access to your data.
+# Fixing sync is giving you access to your data.
 </section>
 
 <section class="slide">
 # How will we build this?
-</section>
-
-<section class="slide">
-## Responsibility
-# Who owns what? (diagram)
 </section>
 
 <section class="slide">
@@ -116,7 +112,7 @@ https://wiki.mozilla.org/User:Dria/Firefox_Sync_User_Stories_-_July_2013
 ## The contracts
 <ol>
 <li> Authentication API
-<li> Storage Protocol - wire + representation
+<li> Storage Protocol (wire + representation)
 <li> User Experience
 </ol>
 </section>
@@ -135,52 +131,51 @@ https://wiki.mozilla.org/User:Dria/Firefox_Sync_User_Stories_-_July_2013
 </section>
 
 <section class="slide">
+## Data Handling
+<ol>
+  <li> <strong>Recoverable</strong> - Bookmarks, tabs, and history
+  <li> <strong>Non-Recoverable</strong> - Passwords
+</ol>
+</section>
+
+<section class="slide">
 # Firefox accounts
 </section>
 
 <section class="slide">
 ## Requirements
 <ol>
-<li> Works everywhere, mobile, desktop, web
-<li> Our products have full control over UX
-<li> Cryptographic keys derived from user's password
-<li> No Federated sign in.  User Choice and Privacy At Odds.
+  <li> Works everywhere.
+  <li> Our products have full control over UX.
+  <li> Cryptographic keys derived from user's password.
+  <li> No Federated sign in.
 </ol>
 </section>
 
 <section class="slide">
-## Deployment Diagram
+## Deployment
 High level deployment diagram of authenticaiton
 </section>
 
 <section class="slide">
 ## Deriving Keys
 <br><center><i>(Security is only as good as the password and the handling)</i></center><br>
+
+</section>
+
+<section class="slide">
+## Sign In From the Web
+<br><center><i>(whereby we leverage Persona)</i></center><br>
 <ol>
-  <li> User types in a password
-  <li> PBKDF2 stretching (device)
-  <li> SCRYPT (device or helper)
-  <li> PBKDF2 stretching (device)
-  <li> auth and crypt keys result
+  <li> Use your Firefox account from a website.
+  <li> Websites don't touch raw passwords.
+  <li> Sign into apps with your Firefox account.
 </ol>
+
 </section>
 
 <section class="slide">
-## Signing In From Content
-<br><center><i>(whereby we leverage the work we've done the last couple years)</i></center><br>
-<ol>
-  <li> We build a bridge!
-  <li> Websites don't touch raw passwords
-  <li> Potential FirefoxOS Benefits
-</ol>
-</section>
-
-<section class="slide">
-## Access PiCL data from the web
-</section>
-
-<section class="slide">
-## FA: Current State
+## Current State
 <ol>
   <li> <a href="https://github.com/mozilla/picl-idp/blob/master/docs/api.md">API Documentation</a>
   <li> running server: http://idp.profileinthecloud.net/
@@ -196,21 +191,26 @@ High level deployment diagram of authenticaiton
 <section class="slide">
 ## MVP requirements
 <ol>
-  <li> Scales
-  <li> Supports Bookmarks, Tabs, Passwords, and History
+  <li> Doesn't melt.
+  <li> Bookmarks, Tabs, Passwords, and History.
   <li> Durable / Server Canonical
-  <li> Fast To Market
-  <li> Compatible with 3rd party integration
 </ol>
 </section>
 
 <section class="slide">
-## High Level Approaches
+## Design Constraints
 <ol>
-  <li> Use old sync (v1.1)
-  <li> Build a new system on existing tech
-  <li> Build a new system on custom tech
-  <li> Use a 3rd party
+  <li> Get it done fast.
+  <li> Compatible with 3rd party storage.
+  <li> Versioning
+  <li> Limited Resource Clients
+</ol>
+</section>
+
+<section class="slide">
+## Current Approach
+<ol>
+  <li> Use the CouchDB wire protocol
 </ol>
 </section>
 
@@ -220,45 +220,8 @@ High level deployment diagram of authenticaiton
 </section>
 
 <section class="slide">
-## A Typical User
-<ul>
-<li> Has 472 history entries
-<li> 546 bookmarks
-<li> 469 passwords
-</ul>
-<br><br>
-https://id.etherpad.mozilla.org/picl-user-model
-</section>
-
-<section class="slide">
-## A new system on existing tech
-</section>
-
-<section class="slide">
 ## Prototypes
 Vlad and Dale
-</section>
-
-<section class="slide">
-## Data Representation
-<pre>
-{
-    "v": 1, "guid": "abcdefghijkl",
-    "hash": "abcdefghijklabcdefghijkl",
-    "iv": "aeaeaeaeaeae", "hmac": "bcbcbcbcbcbcbcbc",
-    "contents": {  // Shown as cleartext.
-     "usernameField": "f_us",
-     "passwordField": "f_p",
-     "httpRealm": "",
-     "hostname": "foo.com",
-     "formSubmitURL": "http://...",
-     "timeCreated": 1374647169487,
-     "timeLastUsed": 1374647449487,
-     "timePasswordChanged": 1374647449487,
-     "timesUsed": 3
-    }
-}
-</pre>
 </section>
 
 <section class="slide">
